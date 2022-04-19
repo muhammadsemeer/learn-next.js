@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import crypto from "crypto"
 
 const NavBar = () => {
   return (
@@ -9,7 +10,10 @@ const NavBar = () => {
       </div>
       <Link href="/">Home</Link>
       <Link href="/about">About</Link>
-      <Link href="/test">Test</Link>
+      <Link href="/todo">Todo</Link>
+      <Link href={
+        "/" + crypto.randomBytes(1).toString("hex")
+      }>404</Link>
     </nav>
   );
 };

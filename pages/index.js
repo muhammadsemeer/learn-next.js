@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Test List | Home</title>
+        <title>Todo List | Home</title>
       </Head>
       <div>
         <h1 className={styles.title}>Home Page</h1>
@@ -22,9 +22,9 @@ export default function Home() {
           accusantium dignissimos delectus error distinctio. Molestias eligendi
           distinctio voluptatem?
         </p>
-        <Link href="/test">
+        <Link href="/todo">
           <a className={styles.btn}>
-            See the <strong>Tests</strong>
+            See the <strong>Todo</strong>
           </a>
         </Link>
       </div>

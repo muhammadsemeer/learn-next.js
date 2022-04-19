@@ -4,10 +4,10 @@ const Index = () => {
   return (
     <>
       <Head>
-        <title>Test List | Test</title>
+        <title>Todo List | Test</title>
       </Head>
       <div>
-        <h1>All Test</h1>
+        <h1>All Todo</h1>
       </div>
     </>
   );

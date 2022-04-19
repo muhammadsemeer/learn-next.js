@@ -25,7 +25,7 @@ const NotFound = () => {
   return (
     <>
       <Head>
-        <title>Test List | 404</title>
+        <title>Todo List | 404</title>
       </Head>
       <div>
         <div className="not-found">
