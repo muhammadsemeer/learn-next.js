@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../../styles/Todos.module.css";
 
 const Todos = ({ todos }) => {
@@ -10,22 +11,20 @@ const Todos = ({ todos }) => {
       <div>
         <h1>All Todo</h1>
         {todos.map((todo) => (
-          <div key={todo.id}>
+          <Link key={todo.id} href={`/todo/${todo.id}`} passHref>
             <h3 className={styles.single}>
-              <a>
-                {todo.title}{" "}
-                <span
-                  className={`
+              {todo.title}&nbsp;
+              <span
+                className={`
                     ${styles.status} ${
-                    todo.completed ? styles.completed : styles.pending
-                  }
+                  todo.completed ? styles.completed : styles.pending
+                }
                     `}
-                >
-                  {todo.completed ? "Completed" : "Pending"}
-                </span>
-              </a>
+              >
+                {todo.completed ? "Completed" : "Pending"}
+              </span>
             </h3>
-          </div>
+          </Link>
         ))}
       </div>
     </>
