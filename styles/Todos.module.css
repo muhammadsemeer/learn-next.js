@@ -1,0 +1,25 @@
+.single {
+  padding: 16px;
+  background: #fff;
+  display: block;
+  margin: 20px 10px;
+  border-radius: 8px;
+  border-left: 8px solid #fff;
+}
+.single:hover {
+  border-left: 8px solid #4979ff;
+}
+
+.status {
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  color: #1a1a1a;
+  border-radius: 6px;
+}
+
+.pending {
+  background: #fd4848;
+}
+.completed {
+  background: #48fd6f;
+}
