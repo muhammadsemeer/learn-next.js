@@ -1,6 +1,13 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const Todo = ({ todo, user }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <Head>
@@ -20,13 +27,13 @@ export const getStaticPaths = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos");
   const todos = await res.json();
 
-  const paths = todos.map((todo) => ({
+  const paths = todos.slice(0, 5).map((todo) => ({
     params: { id: todo.id.toString() },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -38,6 +45,12 @@ export const getStaticProps = async ({ params, ...rest }) => {
   const user = await fetch(
     `https://jsonplaceholder.typicode.com/users/${todo.userId}`
   );
+
+  if (!todo.id) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

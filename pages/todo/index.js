@@ -37,7 +37,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      todos,
+      todos: todos.slice(0, 5),
     },
   };
 };
