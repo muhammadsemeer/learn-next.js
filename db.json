@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Buy milk",
+      "userId": 1,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Buy 10 eggs",
+      "userId": 1, 
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "Buy 1 bread",
+      "userId": 1,
+      "completed": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "jhondeo@gmail.com"
+    }
+  ]
+}

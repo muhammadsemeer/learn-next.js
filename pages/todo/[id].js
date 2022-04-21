@@ -24,10 +24,10 @@ const Todo = ({ todo, user }) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const res = await fetch("http://localhost:3001/todos");
   const todos = await res.json();
 
-  const paths = todos.slice(0, 5).map((todo) => ({
+  const paths = todos.slice(0, 1).map((todo) => ({
     params: { id: todo.id.toString() },
   }));
 
@@ -38,25 +38,17 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params, ...rest }) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/todos/${params.id}`
-  );
+  console.log("Generating / Regenerating Todo Page", params.id);
+  const res = await fetch(`http://localhost:3001/todos/${params.id}`);
   const todo = await res.json();
-  const user = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${todo.userId}`
-  );
-
-  if (!todo.id) {
-    return {
-      notFound: true,
-    };
-  }
+  const user = await fetch(`http://localhost:3001/users/${todo.userId}`);
 
   return {
     props: {
       todo,
       user: await user.json(),
     },
+    revalidate: 10,
   };
 };
 
