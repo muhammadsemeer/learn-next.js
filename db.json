@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Buy milk",
       "userId": 1,
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,

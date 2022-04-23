@@ -31,7 +31,7 @@ const Todos = ({ todos }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch("http://localhost:3001/todos");
   const todos = await res.json();
 
